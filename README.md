@@ -45,6 +45,9 @@ Para indicar otra class para salida se puede hacer así:
 ```javascript
 $("#cuentaLi1").CuentaLineas({Nuwidth: 400,Nuheight: 130, classCL: "codigos"});
 ```
+```img
+Resultado.png
+```
 License
 -------
 
