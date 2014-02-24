@@ -45,8 +45,11 @@ Para indicar otra class para salida se puede hacer así:
 ```javascript
 $("#cuentaLi1").CuentaLineas({Nuwidth: 400,Nuheight: 130, classCL: "codigos"});
 ```
+
 ![](Resultado.png)
+
 Veamos un ejemplo con una etiqueta `<code></code>`:
+
 ```html
 	<script type="text/javascript" src="jQuery.CuentaLinea.js"></script>
 	<link rel="stylesheet" type="text/css" href="stilo.css">
@@ -87,7 +90,11 @@ Veamos un ejemplo con una etiqueta `<code></code>`:
 	</code>
 </body>
 ```
+
+El resultado:
+
 ![](ResulDiv.png)
+
 License
 -------
 
