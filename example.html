@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="CuentaLinea.js"></script>
+	<link rel="stylesheet" type="text/css" href="stilo.css">
+	<script type="text/javascript">
+	$(document).on("ready",function(){
+		$("#cuentaLi").CuentaLineas();
+		$("#cuentaLi1").CuentaLineas({Nuwidth: 400,Nuheight: 130, classCL: "codigos"});
+		$("p").CuentaLineas({Nuwidth: "80%",Nuheight: "auto"});
+		$("#textcontenido").CuentaLinea({Nuwidth: 400,Nuheight: 60});
+	});
+	</script>
+</head>
+<body>
+	<code id="cuentaLi" >
+(function ( $ ) {
+	$.fn.cuentaLineass = function() {
+		var contenido="";
+		var ya="";
+		contenido=$(this).text();
+		if (contenido.length>0) {
+			if (contenido.length==1) {
+				var textoline="";
+				var linea=0;
+			}else{
+				var textoline="\n01 | ";
+				var linea=1;
+			}
+			for (var i = 0; i <=contenido.length; i++) {
+				if(contenido.charAt(i) == '\n'){
+					linea++;
+					if (i<contenido.length-1) {
+						if (linea<10) {
+							textoline+=contenido.charAt(i)+"0"+linea+" | "; 
+						}else{
+							textoline+=contenido.charAt(i)+linea+" | ";
+						}
+					}
+				}else{
+					textoline+=contenido.charAt(i);
+				}
+			};
+		}else{
+			textoline="";
+		}
+		return this.text(textoline);
+	};
+}( jQuery ));
+(function ( $ ) {
+	$.fn.cuentaLineass2 = function() {
+		var contenido="";
+		var ya="";
+		contenido=$(this).text();
+		if (contenido.length>0) {
+			var textoline="",ya="";
+			var linea=0;
+			for (var i = 0; i <=contenido.length; i++) {
+				if(contenido.charAt(i) == '\n'){
+					linea++;
+					if (linea<10) {
+						textoline+="<br>0"+linea+" | "+ya; 
+					}else{
+						textoline+="<br>"+linea+" | "+ya;
+					}
+				}else{
+					textoline+=contenido.charAt(i);
+				}
+			};
+		}else{
+			textoline="";
+		}
+		return this.html(textoline);
+	};
+}( jQuery ));
+</code>
+	<br>
+	<br>
+	<textarea id="cuentaLi1">
+		texto texto, texto texto.
+		texto texto.
+		
+		texto texto texto texto texto texto.
+		texto texto texto texto texto texto.
+		texto texto, texto texto. texto texto.
+		texto texto texto texto texto texto.
+	</textarea>
+	<p>
+		texto texto texto texto texto texto.texto texto texto texto texto texto.texto texto texto texto texto texto.texto texto texto texto texto texto.
+	</p>
+	<p>texto texto texto texto texto texto.
+		texto texto texto texto texto texto,
+		texto texto texto texto texto texto. </p>
+	<p>
+		texto texto texto texto texto texto.
+		texto texto texto texto texto texto,
+		texto texto texto texto texto texto.
+	</p>
+	<p>texto texto texto texto texto texto.texto texto texto texto texto texto,texto texto texto texto texto texto.</p>
+	<br>
+	<br>
+	<input type="text" id="textcontenido" value="texto texto, texto texto.texto texto.">
+</body>
+</html>
