@@ -46,7 +46,7 @@ Para indicar otra class para salida se puede hacer así:
 $("#cuentaLi1").CuentaLineas({Nuwidth: 400,Nuheight: 130, classCL: "codigos"});
 ```
 ```img
-![Resultadohttp]s://github.com/nitsugario/CuentaLineas/blob/master/Resultado.png
+![Resultado]https://github.com/nitsugario/CuentaLineas/blob/master/Resultado.png
 ```
 License
 -------
