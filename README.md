@@ -16,8 +16,8 @@ Examples
 El primer ejemplo es sin indicar propiedades al plugin.
 
 ```html
-<script type="text/javascript" src="jquery-1.11.0.js"></script>
-<script type="text/javascript" src="CuentaLinea.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jQuery.CuentaLinea.js"></script>
 <link rel="stylesheet" type="text/css" href="stilo.css">
 <script type="text/javascript">
 $(document).on("ready",function(){
@@ -47,6 +47,47 @@ $("#cuentaLi1").CuentaLineas({Nuwidth: 400,Nuheight: 130, classCL: "codigos"});
 ```
 ![](Resultado.png)
 Veamos un ejemplo con una etiqueta `<code></code>`:
+```html
+	<script type="text/javascript" src="jQuery.CuentaLinea.js"></script>
+	<link rel="stylesheet" type="text/css" href="stilo.css">
+	<script type="text/javascript">
+	$(document).on("ready",function(){
+		$("#cuentaLi").CuentaLineas();
+	});
+	</script>
+</head>
+<body>
+	<code id="cuentaLi" >
+	(function ( $ ) {
+		$.fn.cuenta = function() {
+			var contenido="";
+			var ya="";
+			contenido=$(this).text();
+			if (contenido.length>0) {
+				var textoline="",ya="";
+				var linea=0;
+				for (var i = 0; i =contenido.length; i++) {
+					if(contenido.charAt(i) == '\n'){
+						linea++;
+						if (linea=10) {
+							textoline+="<br>0"+linea+" | "+ya; 
+						}else{
+							textoline+="<br>"+linea+" | "+ya;
+						}
+					}else{
+						textoline+=contenido.charAt(i);
+					}
+				};
+			}else{
+				textoline="";
+			}
+			return this.html(textoline);
+		};
+	}( jQuery ));
+	</code>
+</body>
+```
+![](ResulDiv.png)
 License
 -------
 
